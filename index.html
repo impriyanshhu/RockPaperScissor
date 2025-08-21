@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-flex align-items-center justify-content-center p-2">
+
+    <div class="container p-4 game-container">
+        <h1 class="text-center mb-2 text-success">Rock Paper Scissors</h1>
+
+        <div class="result-display text-center mb-2">
+            <h4 class="m-0">Choose your move</h4>
+        </div>
+
+        <div class="d-flex justify-content-center gap-4 mb-4">
+            <div class="icon text-center">
+                <img src="rock.png" alt="rock" onclick="playgame('rock')">
+                <p class="m-0 mt-2">Rock</p>
+            </div>
+            <div class="icon text-center">
+                <img src="paper.png" alt="paper" onclick="playgame('paper')">
+                <p class="m-0 mt-2">Paper</p>
+            </div>
+            <div class="icon text-center">
+                <img src="scissor.png" alt="scissor" onclick="playgame('scissors')">
+                <p class="m-0 mt-2">Scissors</p>
+            </div>
+        </div>
+
+        <div id="score-card" class="d-flex justify-content-center align-items-center gap-3 mt-3">
+            <div>
+                <small>Win</small>
+                <p class="youWin">0</p>
+            </div>
+            <div>
+                <small>Lose</small>
+                <p class="youLose">0</p>
+            </div>
+            <div>
+                <small>Draw</small>
+                <p class="youDraw">0</p>
+            </div>
+            <div>
+                <small>Round</small>
+                <p id="round-count">1</p>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end align-items-center mt-0">
+            <button type="button" class="btn btn-sm reset-btn"><i class="fas fa-sync-alt"></i> Reset</button>
+        </div>
+
+        <div class="history-section mt-3 p-3 bg-dark rounded">
+            <h5 class="text-success mb-3">Game History</h5>
+            <ul class="list-unstyled mb-0 history-list" id="history-list"></ul>
+        </div>
+    </div>
+
+    <div class="modal fade" id="playAgainModal" tabindex="-1" aria-labelledby="playAgainModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="playAgainModalLabel">Round Over!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p id="modal-result-message"></p>
+                    <p><strong>Current Stats:</strong></p>
+                    <p>Wins: <span id="modalWin">0</span> | Losses: <span id="modalLose">0</span> | Draws: <span id="modalDraw">0</span></p>
+                    <p>Total Games: <span id="modalTotalGames">0</span> | Win Percentage: <span id="modalWinPercentage">0%</span></p>
+                    <p class="mt-3">Do you want to play another round?</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-success" id="playAgainBtn">Play Next Round</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="cancelAndResetBtn">End Game & Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
